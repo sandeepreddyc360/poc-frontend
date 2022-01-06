@@ -6,7 +6,7 @@ import { AiOutlinePrinter, AiFillStepBackward, AiFillStepForward } from "react-i
 import { IoCaretForwardOutline, IoCaretBackOutline } from "react-icons/io5";
 import qz from 'qz-tray';
 function Customer() {
-    const url = "https://carton-print.herokuapp.com/"
+    const url = "https://carton-print.herokuapp.com"
     const [data, setData] = useState([])
 
     // pagination
