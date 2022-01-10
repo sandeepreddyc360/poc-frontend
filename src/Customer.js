@@ -156,7 +156,7 @@ function Customer() {
             onRender: (q) => {
                 return (
                     <div>
-                        <h1 onClick={
+                        <h1 className='cursor-pointer' onClick={
                             function connectQZ(type) {
                                 if (!qz.websocket.isActive()) {
                                     console.log(qz.websocket)
@@ -170,6 +170,7 @@ function Customer() {
 
 
                             }}
+                            
                         >Printer</h1>
                     </div>
                 )
@@ -203,7 +204,7 @@ function Customer() {
                                         return qz.printers.find(finalselectedprinter);              // Pass the printer name into the next Promise
                                     }).then(function (printer) {
                                         var config = qz.configs.create(printer);       // Create a default config for the found printer
-                                        var data = ['^XA^FO50,50^ADN,36,20^FDRAW ZPL EXAMPLE^FS^XZ'];   // Raw ZPL
+                                        var data = [`"^XA^CFf0,10,10^PR12^LRY^MD30^PW406^LL609^PON^FO5,5^FDMARUTI SUZUKI INDIA^FS^FO20,39^FDSEQ NO: ${q.SEQ_NO}^FS^FO22,81^FDDDL ${q.CONS_ID}^FS^FO23,123^FD1^FS^FO30,157^BY${q.Order_No}^B3N,N,63N,N^FD${q.ContLP_No}^FS^FO-1,314^GB0,5,400^FS^FO30,226^FDA^FS^FO5,277^FDMH^FS^FO50,276^FD10/AUG/2021^FS^FO274,276^FDR:6-A21^FS^FO6,326^FDGATI KWE^FS^FO249,328^FD${q.Mode}^FS^FO72,364^BY1^B3N,N,55N,N^FD4549588180000000000^FS^FO96,423^FD454958827^FS^FO10,426^FDPkgNo:^FS^FO9,457^FDORG:^FS^FO66,452^FDGGN^FS^FO206,459^FDDEST:^FS^FO268,450^FDCCU^FS^FO82,479^BY1^B3N,N,55N,N^FD18331038800000-0001^FS^FO9,541^FDDkt No:^FS^FO124,537^FDdkt no^FS^FO21,586^FDPowered by eShipz.com^FS^FO260,566^FD10 of 10^FS^PQ1^XZ "`];   // Raw ZPL
                                         console.log(data)
                                         return qz.print(config, data);
                                     }).catch(function (e) { console.error(e); });
