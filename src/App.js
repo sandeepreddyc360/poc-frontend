@@ -5,9 +5,7 @@ import Customer from './Customer';
 function App() {
   return (
     <div className="">
-
-      
-      {/* <Customer /> */}
+      <Customer />
     </div>
   );
 }
