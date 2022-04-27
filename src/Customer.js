@@ -158,21 +158,8 @@ function Customer() {
                     <div>
 
                         <AiOutlinePrinter className='cursor-pointer'
-                            onClick={() => {
-                                if (!qz.websocket.isActive()) {
-                                    console.log(qz.websocket)
-                                    qz.websocket.connect().then(() => {
-                                        findPrinters();
-                                    }).catch(function (e) { console.error(e); })
-                                }
-                                else {
-                                    findPrinters();
-                                }
-                            },
+                            onClick={
                                 () => {
-
-
-
                                     qz.websocket.connect().then(function () {
                                         console.log(qz.printers.find(finalselectedprinter))
                                         return qz.printers.find(finalselectedprinter);              // Pass the printer name into the next Promise
